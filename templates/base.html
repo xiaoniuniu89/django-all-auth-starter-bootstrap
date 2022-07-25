@@ -1,0 +1,39 @@
+{% load compress %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    {% if title %}
+        <title>{{title}}</title>
+    {% else %}
+        <title>Title</title>
+    {% endif %}
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    
+    {% block extra_css %}{% endblock extra_css %}
+</head>
+
+    <body>
+
+        {% include 'partials/navbar.html' %}
+
+
+        {% block content %}{% endblock content %}
+
+        {% include 'partials/footer.html' %}
+
+
+
+        
+
+    </body>
+  </html>
+        
